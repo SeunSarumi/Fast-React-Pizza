@@ -39,6 +39,8 @@ const cartSlice = createSlice({
 
       item.quatity--;
       item.totalPrice = item.quatity * item.unitPrice;
+
+      if (item.quatity === 0) cartSlice.caseReducers.deleteItem(state, action);
     },
     clearCart(state) {
       state.cart = [];
